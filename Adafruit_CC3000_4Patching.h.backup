@@ -1,11 +1,10 @@
 /*
-	This is the Adafruit CC3000 library, stripped down to the minimum to
-	make enough room for the CC3000 patch.
-	
-	I deleted code for functions not relevant to the patching,
-	e.g. scan for SSIDs, etc.
+	This is the Adafruit CC3000 Arduino library, stripped down to the bare
+	minimum so there's enough room in the Arduino Flash to hold the 
+	CC3000 patch
 	
 */
+
 
 /**************************************************************************/
 /*! 
@@ -25,9 +24,6 @@
 	products from Adafruit!	
 */
 /**************************************************************************/
-
-#ifndef ADAFRUIT_CC3000_H
-#define ADAFRUIT_CC3000_H
 
 #if ARDUINO >= 100
  #include "Arduino.h"
@@ -154,6 +150,4 @@ class Adafruit_CC3000 {
 
 };
 
-extern Print* CC3KPrinter;
-
-#endif
+//extern Print* CC3KPrinter;

@@ -67,8 +67,7 @@
 	corrupt. You may be able to recover from this by:
 	
 	1. Restart your Arduino
-	2. Use option 5D to generate a new random MAC address and load the T.I.
-		defaults
+	2. Use option 5D to load the T.I. defaults and a stock MAC address
 	3. Use option 6Y erase the CC3000's current firmware
 	4. Use option 7Y to restore your CC3000's info from Arduino EEPROM
 	5. Use option 8Y to update the first part of the new firmware
@@ -277,18 +276,6 @@ PROGMEM prog_uchar cRMdefaultParams[128] =
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 void PrintMACAddress(void) {
 	for (int i=0; i<MAC_SIZE; i++) {
 		if (i!=0) {
@@ -303,11 +290,17 @@ void PrintMACAddress(void) {
 
 
 
+
+
+
 void StartCC3000Driverless(void) {
 	Serial.println(F("    Starting CC3000 with no patches"));
 	cc3000.begin(2);
 	Serial.println(F("        Started"));
 	}
+
+
+
 	
 	
 void StopCC3000(void) {
@@ -315,6 +308,9 @@ void StopCC3000(void) {
 	wlan_stop();
 	Serial.println(F("        Stopped"));
 	}
+
+
+
 
 
 
@@ -419,6 +415,9 @@ void ShowEEPROM(void) {
 
 
 
+
+
+
 void GetCC3000Info(bool copyToEEPROM) {
 
 	if (copyToEEPROM) {
@@ -508,11 +507,17 @@ void GetCC3000Info(bool copyToEEPROM) {
 
 
 void UseDefaults(void) {
-	Serial.println(F("Make random MAC and copy default Radio File to Arduino EEPROM"));
+
+	// An earlier version of the patch utility generated a random MAC address but
+	// my Verizon router didn't like them, so now I'm defaulting to a known good
+	// value, which seems to work fine
+	static uint8_t macAddress[MAC_SIZE] = { 0x08, 0x00, 0x28, 0x01, 0x79, 0x3F };
 	
-	Serial.println(F("    Generating random MAC..."));
+	Serial.println(F("Using stock MAC and copy default Radio File to Arduino EEPROM"));
+	
+	Serial.println(F("    Loading stock MAC..."));
 	for (int i=0; i<MAC_SIZE; i++) {
-		EEPROM.write(MAC_ADDRESS_EEPROM_LOCATION+i, random(256));
+		EEPROM.write(MAC_ADDRESS_EEPROM_LOCATION+i, macAddress[i]);
 		}
 		
 	Serial.println(F("    Copying default RM file data..."));
@@ -1004,6 +1009,8 @@ void CommandProcessor(char *buffer) {
 
 void setup(void) {
 	Serial.begin(115200);
+	
+	//while (!Serial);	// wait for the Serial Monitor to be opened on Teensy, Leonardo, etc.
 
 	Serial.println(F("The Arduino CC3000 Firmware 1.24 Patcher"));
 	Serial.println(F("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-"));

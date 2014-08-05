@@ -1,3 +1,35 @@
+<h3>This project is abandoned!</h3>
+
+<p>
+I've given up on the CC3000, it's just too buggy and problematic.
+</p>
+
+
+<p>TI themselves say this on the CC3000 page:</p>
+
+<pre>
+TI recommends CC3200 & CC3100 for all new and existing embedded Wi-Fi & Internet of Things applications.
+</pre>
+
+<p>And they've removed references to the CC3000 on their SimpleLink WiFi page at
+<a href="http://www.ti.com/ww/en/simplelink_embedded_wi-fi/home.html">http://www.ti.com/ww/en/simplelink_embedded_wi-fi/home.html</a>
+</p>
+
+<p>
+I'm going to leave these pages here so people searching the web for help don't find dead links,
+but I recommend you abandon your quest to make this half-baked module work. Best of luck to you.
+</p>
+
+
+
+
+
+
+
+
+
+<br>
+
 <h1>The Arduino CC3000 Firmware Upgrader</h1>
 <h2>Version 0.1 - September 19, 2013 - Chris Magagna</h2>
 <h3>This will upgrade a CC3000 to:
