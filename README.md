@@ -20,22 +20,14 @@ I'm going to leave these pages here so people searching the web for help don't f
 but I recommend you abandon your quest to make this half-baked module work. Best of luck to you.
 </p>
 
-
-
-
-
-
-
-
-
 <br>
 
-<h1>The Arduino CC3000 Firmware Upgrader</h1>
-<h2>Version 0.1 - September 19, 2013 - Chris Magagna</h2>
-<h3>This will upgrade a CC3000 to:
+<h4>The Arduino CC3000 Firmware Upgrader</h4>
+<h5>Version 0.1 - September 19, 2013 - Chris Magagna</h5>
+<h6>This will upgrade a CC3000 to:
 		Service Pack Version 1.24
 		Release Package 1.11.1
-</h3>
+</h6>
 
 <p>					
 	This code released into the public domain, with no usefulness implied blah
