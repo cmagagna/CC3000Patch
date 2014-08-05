@@ -20,7 +20,9 @@ I'm going to leave these pages here so people searching the web for help don't f
 but I recommend you abandon your quest to make this half-baked module work. Best of luck to you.
 </p>
 
-<br>
+<hr>
+<hr>
+<hr>
 
 <h4>The Arduino CC3000 Firmware Upgrader</h4>
 <h5>Version 0.1 - September 19, 2013 - Chris Magagna</h5>
